@@ -11,7 +11,7 @@ export function calculateLoss(level, promotion, vocation){
     var baseExpLoss =  ( (level + 50) / 100 ) * 50 * (Math.pow(level, 2) - 5 * level + 8);
     var totalExp = (50/3) * (Math.pow(level, 3) - 6*Math.pow(level, 2) + 17 * level - 12);
 
-    var blessExpLoss = level < 25 ? baseExpLoss * 0.1 : baseExpLoss * (Math.pow(0.92, 7)*promoReduction);
+    var blessExpLoss = level < 25 ? baseExpLoss * 0.1 : baseExpLoss * (Math.pow(0.92, 5)*promoReduction);
     var blessLevelLoss = blessExpLoss / totalExp;
 
     var noBlessExpLoss = level < 25 ? baseExpLoss * 0.1 : baseExpLoss * promoReduction;
@@ -45,30 +45,5 @@ export function calculateLoss(level, promotion, vocation){
         capacity
     };
 
-    return{
-        type: "EXP_LOSS",
-        payload: results
-    };
-
+    return results;
 };
-
-export function handlePromotion(promotion){
-    return{
-        type: "PROMOTION",
-        payload: promotion
-    }
-}
-
-export function handleLevel(level){
-    return{
-        type: "LEVEL",
-        payload: level
-    }
-}
-
-export function handleVocation(vocation){
-    return{
-        type: "VOCATION",
-        payload: vocation
-    }
-}
