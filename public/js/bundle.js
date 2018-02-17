@@ -562,6 +562,43 @@ module.exports = warning;
 
 /***/ }),
 /* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__combineReducers__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(25);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createStore", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "combineReducers", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "bindActionCreators", function() { return __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyMiddleware", function() { return __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "compose", function() { return __WEBPACK_IMPORTED_MODULE_4__compose__["a"]; });
+
+
+
+
+
+
+
+/*
+* This is a dummy function to check if the function name has been altered by minification.
+* If the function has been minified and NODE_ENV !== 'production', warn the user.
+*/
+function isCrushed() {}
+
+if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
+  Object(__WEBPACK_IMPORTED_MODULE_5__utils_warning__["a" /* default */])('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
+}
+
+
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -577,7 +614,7 @@ module.exports = warning;
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(4);
   var warning = __webpack_require__(6);
-  var ReactPropTypesSecret = __webpack_require__(8);
+  var ReactPropTypesSecret = __webpack_require__(9);
   var loggedTypeFailures = {};
 }
 
@@ -628,7 +665,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -647,7 +684,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -673,43 +710,6 @@ function warning(message) {
   } catch (e) {}
   /* eslint-enable no-empty */
 }
-
-/***/ }),
-/* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__combineReducers__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(25);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createStore", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["b"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "combineReducers", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "bindActionCreators", function() { return __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyMiddleware", function() { return __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "compose", function() { return __WEBPACK_IMPORTED_MODULE_4__compose__["a"]; });
-
-
-
-
-
-
-
-/*
-* This is a dummy function to check if the function name has been altered by minification.
-* If the function has been minified and NODE_ENV !== 'production', warn the user.
-*/
-function isCrushed() {}
-
-if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
-  Object(__WEBPACK_IMPORTED_MODULE_5__utils_warning__["a" /* default */])('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
-}
-
-
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
 /* 11 */
@@ -1923,7 +1923,7 @@ function wrapMapToPropsFunc(mapToProps, methodName) {
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = verifyPlainObject;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__warning__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__warning__ = __webpack_require__(10);
 
 
 
@@ -1950,13 +1950,13 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _reactRedux = __webpack_require__(18);
 
-var _redux = __webpack_require__(10);
+var _redux = __webpack_require__(7);
 
 var _calculator = __webpack_require__(68);
 
 var _calculator2 = _interopRequireDefault(_calculator);
 
-var _reducers = __webpack_require__(69);
+var _reducers = __webpack_require__(71);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -2025,7 +2025,7 @@ var emptyObject = __webpack_require__(5);
 var invariant = __webpack_require__(4);
 var warning = __webpack_require__(6);
 var emptyFunction = __webpack_require__(1);
-var checkPropTypes = __webpack_require__(7);
+var checkPropTypes = __webpack_require__(8);
 
 // TODO: this is special because it gets imported during build.
 
@@ -3735,7 +3735,7 @@ var shallowEqual = __webpack_require__(15);
 var containsNode = __webpack_require__(16);
 var focusNode = __webpack_require__(17);
 var emptyObject = __webpack_require__(5);
-var checkPropTypes = __webpack_require__(7);
+var checkPropTypes = __webpack_require__(8);
 var hyphenateStyleName = __webpack_require__(37);
 var camelizeStyleName = __webpack_require__(39);
 
@@ -19270,7 +19270,7 @@ module.exports = camelize;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_PropTypes__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_warning__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_warning__ = __webpack_require__(10);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -19364,8 +19364,8 @@ var invariant = __webpack_require__(4);
 var warning = __webpack_require__(6);
 var assign = __webpack_require__(3);
 
-var ReactPropTypesSecret = __webpack_require__(8);
-var checkPropTypes = __webpack_require__(7);
+var ReactPropTypesSecret = __webpack_require__(9);
+var checkPropTypes = __webpack_require__(8);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -19911,7 +19911,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 var emptyFunction = __webpack_require__(1);
 var invariant = __webpack_require__(4);
-var ReactPropTypesSecret = __webpack_require__(8);
+var ReactPropTypesSecret = __webpack_require__(9);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -20357,7 +20357,7 @@ function shallowEqual(objA, objB) {
 /* unused harmony export whenMapDispatchToPropsIsFunction */
 /* unused harmony export whenMapDispatchToPropsIsMissing */
 /* unused harmony export whenMapDispatchToPropsIsObject */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wrapMapToProps__ = __webpack_require__(27);
 
 
@@ -21134,7 +21134,7 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = verifySubselectors;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_warning__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_warning__ = __webpack_require__(10);
 
 
 function verify(selector, methodName, displayName) {
@@ -21172,6 +21172,14 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(18);
 
+var _results = __webpack_require__(69);
+
+var _results2 = _interopRequireDefault(_results);
+
+var _redux = __webpack_require__(7);
+
+var _actions_calculator = __webpack_require__(70);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21190,178 +21198,77 @@ var Calculator = function (_Component) {
     }
 
     _createClass(Calculator, [{
-        key: 'blessings',
-        value: function blessings() {
-            return _react2.default.createElement(
-                'tr',
-                null,
-                _react2.default.createElement(
-                    'td',
-                    null,
-                    _react2.default.createElement('input', { type: 'checkbox', name: 'chkAll', value: 'All Blessings' })
-                ),
-                _react2.default.createElement(
-                    'td',
-                    null,
-                    _react2.default.createElement('input', { type: 'checkbox', name: 'chkSpiritual', value: 'The Spiritual Shielding' })
-                ),
-                _react2.default.createElement(
-                    'td',
-                    null,
-                    _react2.default.createElement('input', { type: 'checkbox', name: 'chkEmbrace', value: 'The Embrace of Tibia' })
-                ),
-                _react2.default.createElement(
-                    'td',
-                    null,
-                    _react2.default.createElement('input', { type: 'checkbox', name: 'chkFire', value: 'The Fire of the Suns' })
-                ),
-                _react2.default.createElement(
-                    'td',
-                    null,
-                    _react2.default.createElement('input', { type: 'checkbox', name: 'chkSpark', value: 'The Spark of the Phoenix' })
-                ),
-                _react2.default.createElement(
-                    'td',
-                    null,
-                    _react2.default.createElement('input', { type: 'checkbox', name: 'chkWisdom', value: 'The Wisdom of Solitude' })
-                ),
-                _react2.default.createElement(
-                    'td',
-                    null,
-                    _react2.default.createElement('input', { type: 'checkbox', name: 'chkBlood', value: 'Blood of the Mountain' })
-                ),
-                _react2.default.createElement(
-                    'td',
-                    null,
-                    _react2.default.createElement('input', { type: 'checkbox', name: 'chkHeart', value: 'Heart of the Mountain' })
-                )
-            );
+        key: 'handleChange',
+        value: function handleChange(e) {
+            this.props.handleLevel(e.target.value);
+            if (this.props.status.level > 8) {
+                this.props.calculateLoss(this.props.status.level, this.props.status.promotion, this.props.status.voc);
+            }
         }
     }, {
-        key: 'renderTable',
-        value: function renderTable() {
-            return _react2.default.createElement(
-                'table',
-                null,
-                _react2.default.createElement(
-                    'tbody',
-                    null,
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            'Level:'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement('input', { type: 'text', name: 'level' })
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            'Promotion:'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement('input', { type: 'checkbox', name: 'chkPromotion' })
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            { colSpan: '2' },
-                            'Hitpoints:'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            { colSpan: '2' },
-                            _react2.default.createElement('span', { ref: 'hp' })
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            { colSpan: '2' },
-                            'Manapoints:'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement('span', { ref: 'mana' })
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            { colSpan: '2' },
-                            'Capacity:'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement('span', { ref: 'cap' })
-                        )
-                    ),
-                    this.blessings(),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            { colSpan: '2' },
-                            'Experience Lost:'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement('span', { ref: 'expLost' })
-                        )
-                    )
-                )
-            );
+        key: 'onSelectchange',
+        value: function onSelectchange(e) {
+            this.props.handleVocation(e.target.value);
+            this.props.calculateLoss(this.props.status.level, this.props.status.promotion, this.props.status.voc);
+        }
+    }, {
+        key: 'handlePromotionChange',
+        value: function handlePromotionChange(e) {
+            this.props.handlePromotion(e.target.checked);
+            this.props.calculateLoss(this.props.status.level, this.props.status.promotion, this.props.status.voc);
         }
     }, {
         key: 'renderForm',
         value: function renderForm() {
             return _react2.default.createElement(
-                'form',
+                'div',
                 null,
                 _react2.default.createElement(
                     'div',
-                    { 'class': 'form-group row' },
-                    _react2.default.createElement(
-                        'label',
-                        { 'for': 'level', 'class': 'col-sm-2 col-form-label' },
-                        'Level'
-                    ),
+                    { className: 'form-row' },
                     _react2.default.createElement(
                         'div',
-                        { 'class': 'col-sm-10' },
-                        _react2.default.createElement('input', { className: 'form-control input-xs', id: 'level', name: 'level', placeholder: 'Your Level...' })
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { 'class': 'form-check row' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'form-check' },
+                        { className: 'form-group row col-md-12' },
                         _react2.default.createElement(
                             'label',
-                            { 'class': 'form-check-label', 'for': 'promotion' },
-                            'Promotion'
+                            { className: 'col-md-2 col-form-label' },
+                            'Level'
                         ),
-                        _react2.default.createElement('input', { className: 'form-check-input', type: 'checkbox', id: 'promotion', name: 'promotion' })
+                        _react2.default.createElement('input', { className: 'form-control col-md-2', id: 'level', name: 'level', placeholder: 'Your Level...', onChange: this.handleChange.bind(this) }),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'form-check col-md-2' },
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'col-md-3' },
+                                'Promotion'
+                            ),
+                            _react2.default.createElement('input', { className: 'form-input col-md-3', type: 'checkbox', value: 'promotion', onChange: this.handlePromotionChange.bind(this) })
+                        ),
+                        _react2.default.createElement(
+                            'select',
+                            { onChange: this.onSelectchange.bind(this), className: 'form-control col-md-3', ref: 'vocation' },
+                            _react2.default.createElement(
+                                'option',
+                                { value: 'knight' },
+                                'Knight'
+                            ),
+                            _react2.default.createElement(
+                                'option',
+                                { value: 'paladin' },
+                                'Paladin'
+                            ),
+                            _react2.default.createElement(
+                                'option',
+                                { value: 'sorcerer' },
+                                'Sorcerer'
+                            ),
+                            _react2.default.createElement(
+                                'option',
+                                { value: 'druid' },
+                                'Druid'
+                            )
+                        )
                     )
                 )
             );
@@ -21372,7 +21279,8 @@ var Calculator = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 { id: 'calcContainer', className: 'container' },
-                this.renderForm()
+                this.renderForm(),
+                _react2.default.createElement(_results2.default, { results: this.props.results })
             );
         }
     }]);
@@ -21380,7 +21288,15 @@ var Calculator = function (_Component) {
     return Calculator;
 }(_react.Component);
 
-exports.default = (0, _reactRedux.connect)()(Calculator);
+function mapStateToProps(state) {
+    return { status: state.status, results: state.results };
+}
+
+function mapDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({ calculateLoss: _actions_calculator.calculateLoss, handleLevel: _actions_calculator.handleLevel, handlePromotion: _actions_calculator.handlePromotion, handleVocation: _actions_calculator.handleVocation }, dispatch);
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Calculator);
 
 /***/ }),
 /* 69 */
@@ -21393,22 +21309,261 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _redux = __webpack_require__(10);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _reducers_calculator = __webpack_require__(70);
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ResultsTable = function (_Component) {
+    _inherits(ResultsTable, _Component);
+
+    function ResultsTable() {
+        _classCallCheck(this, ResultsTable);
+
+        return _possibleConstructorReturn(this, (ResultsTable.__proto__ || Object.getPrototypeOf(ResultsTable)).apply(this, arguments));
+    }
+
+    _createClass(ResultsTable, [{
+        key: "render",
+        value: function render() {
+            console.log(this.props.results);
+            return _react2.default.createElement(
+                "div",
+                null,
+                _react2.default.createElement(
+                    "div",
+                    { className: "form-row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "form-group row col-md-6" },
+                        _react2.default.createElement(
+                            "label",
+                            { className: "col-md-4 col-form-label" },
+                            "Hitpoints"
+                        ),
+                        _react2.default.createElement("input", { className: "form-control col-md-8", type: "text", value: this.props.results.hitpoints || '' })
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "form-row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "form-group row col-md-6" },
+                        _react2.default.createElement(
+                            "label",
+                            { className: "col-md-4 col-form-label" },
+                            "Manapoints"
+                        ),
+                        _react2.default.createElement("input", { className: "form-control col-md-8", type: "text", value: this.props.results.manapoints || '' })
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "form-row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "form-group row col-md-6" },
+                        _react2.default.createElement(
+                            "label",
+                            { className: "col-md-4 col-form-label" },
+                            "Capacity"
+                        ),
+                        _react2.default.createElement("input", { className: "form-control col-md-8", type: "text", value: this.props.results.capacity || '' })
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "form-row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "form-group row col-md-6" },
+                        _react2.default.createElement(
+                            "label",
+                            { className: "col-md-4 col-form-label" },
+                            "All Blessings Experience Loss"
+                        ),
+                        _react2.default.createElement("input", { className: "form-control col-md-8", type: "text", value: this.props.results.blessExpLoss || '' })
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "form-row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "form-group row col-md-6" },
+                        _react2.default.createElement(
+                            "label",
+                            { className: "col-md-4 col-form-label" },
+                            "All Blessings Level Loss"
+                        ),
+                        _react2.default.createElement("input", { className: "form-control col-md-8", type: "text", value: this.props.results.blessLevelLoss || '' })
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "form-row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "form-group row col-md-6" },
+                        _react2.default.createElement(
+                            "label",
+                            { className: "col-md-4 col-form-label" },
+                            "No Blessings Experience Loss"
+                        ),
+                        _react2.default.createElement("input", { className: "form-control col-md-8", type: "text", value: this.props.results.noBlessExpLoss || '' })
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "form-row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "form-group row col-md-6" },
+                        _react2.default.createElement(
+                            "label",
+                            { className: "col-md-4 col-form-label" },
+                            "No Blessings Level Loss"
+                        ),
+                        _react2.default.createElement("input", { className: "form-control col-md-8", type: "text", value: this.props.results.noBlessLevelLoss || '' })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return ResultsTable;
+}(_react.Component);
+
+exports.default = ResultsTable;
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.calculateLoss = calculateLoss;
+exports.handlePromotion = handlePromotion;
+exports.handleLevel = handleLevel;
+exports.handleVocation = handleVocation;
+function calculateLoss(level, promotion, vocation) {
+
+    var promoReduction = 1;
+
+    if (promotion) {
+        promoReduction = 0.7;
+    }
+
+    var baseExpLoss = (level + 50) / 100 * 50 * (Math.pow(level, 2) - 5 * level + 8);
+    var totalExp = 50 / 3 * (Math.pow(level, 3) - 6 * Math.pow(level, 2) + 17 * level - 12);
+
+    var blessExpLoss = level < 25 ? baseExpLoss * 0.1 : baseExpLoss * (Math.pow(0.92, 7) * promoReduction);
+    var blessLevelLoss = blessExpLoss / totalExp;
+
+    var noBlessExpLoss = level < 25 ? baseExpLoss * 0.1 : baseExpLoss * promoReduction;
+    var noBlessLevelLoss = noBlessExpLoss / totalExp;
+
+    var hitpoints = 185;
+    var manapoints = 90;
+    var capacity = 470;
+
+    if (vocation === 'knight') {
+        hitpoints += (level - 8) * 15;
+        manapoints += (level - 8) * 5;
+        capacity += (level - 8) * 25;
+    } else if (vocation === 'paladin') {
+        hitpoints += (level - 8) * 10;
+        manapoints += (level - 8) * 15;
+        capacity += (level - 8) * 20;
+    } else if (vocation === 'sorcerer' || vocation === 'druid') {
+        hitpoints += (level - 8) * 5;
+        manapoints += (level - 8) * 30;
+        capacity += (level - 8) * 10;
+    }
+
+    var results = {
+        blessExpLoss: blessExpLoss,
+        blessLevelLoss: blessLevelLoss,
+        noBlessExpLoss: noBlessExpLoss,
+        noBlessLevelLoss: noBlessLevelLoss,
+        hitpoints: hitpoints,
+        manapoints: manapoints,
+        capacity: capacity
+    };
+
+    return {
+        type: "EXP_LOSS",
+        payload: results
+    };
+};
+
+function handlePromotion(promotion) {
+    return {
+        type: "PROMOTION",
+        payload: promotion
+    };
+}
+
+function handleLevel(level) {
+    return {
+        type: "LEVEL",
+        payload: level
+    };
+}
+
+function handleVocation(vocation) {
+    return {
+        type: "VOCATION",
+        payload: vocation
+    };
+}
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _redux = __webpack_require__(7);
+
+var _reducers_calculator = __webpack_require__(72);
 
 var _reducers_calculator2 = _interopRequireDefault(_reducers_calculator);
+
+var _reducers_status = __webpack_require__(73);
+
+var _reducers_status2 = _interopRequireDefault(_reducers_status);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rootReducer = (0, _redux.combineReducers)({
-    results: _reducers_calculator2.default
+    results: _reducers_calculator2.default,
+    status: _reducers_status2.default
 });
 
 exports.default = rootReducer;
 
 /***/ }),
-/* 70 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21428,6 +21583,41 @@ exports.default = function () {
     }
 
     return state;
+};
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.default = function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+    var action = arguments[1];
+
+    switch (action.type) {
+        case "LEVEL":
+            return _extends({}, state, { level: action.payload });
+        case "VOCATION":
+            return _extends({}, state, { vocation: action.payload });
+        case "PROMOTION":
+            return _extends({}, state, { promotion: action.payload });
+    }
+
+    return state;
+};
+
+var initialState = {
+    level: 8,
+    vocation: 'knight',
+    promotion: false
 };
 
 /***/ })

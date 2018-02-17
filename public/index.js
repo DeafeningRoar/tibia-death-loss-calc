@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import Calculator from './components/calculator';
+import Calculator from './containers/calculator';
 
 import Reducers from './reducers';
 
