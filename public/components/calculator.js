@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Results from './results';
+import Calculations from '../js/calculations';
 
 
 export default class Calculator extends Component{
@@ -8,7 +9,7 @@ export default class Calculator extends Component{
         super(props);
 
         this.state = {
-            level: 8,
+            level: '',
             vocation: 'knight',
             promotion: false,   
         }
@@ -16,12 +17,16 @@ export default class Calculator extends Component{
     }
 
     handleChange(e){
-        this.setState({level: e.target.value});
+        var level = Number(e.target.value);
+        if(level && level >= 1){
+            this.setState({ level });
+        } else {
+            this.setState({ level: e.target.value });
+        }
     }
 
     onSelectchange(e){
         this.setState({vocation: e.target.value});
-
     }
 
     handlePromotionChange(e){
@@ -40,8 +45,8 @@ export default class Calculator extends Component{
             <div>
                 <div className="form-row">
                     <div className="form-group row col-md-12">
-                        <label className="col-md-2 col-form-label">Level</label>
-                        <input className="form-control" id="level" name="level" value={this.state.level} onChange={this.handleChange.bind(this)}/>
+                        <label className="col-md-2 col-form-label"><strong>Level</strong></label>
+                        <input className="form-control" type="number" id="level" name="level" value={this.state.level} onChange={this.handleChange.bind(this)}/>
                         <select id="vocations" onChange={this.onSelectchange.bind(this)} className="form-control" ref="vocation">
                             <option value="knight">Knight</option>
                             <option value="paladin">Paladin</option>

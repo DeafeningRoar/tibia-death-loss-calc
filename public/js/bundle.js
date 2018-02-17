@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 27);
+/******/ 	return __webpack_require__(__webpack_require__.s = 28);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -303,9 +303,9 @@ module.exports = emptyFunction;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(28);
-} else {
   module.exports = __webpack_require__(29);
+} else {
+  module.exports = __webpack_require__(30);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -679,9 +679,9 @@ function warning(message) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__baseGetTag_js__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getPrototype_js__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isObjectLike_js__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__baseGetTag_js__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getPrototype_js__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isObjectLike_js__ = __webpack_require__(59);
 
 
 
@@ -995,7 +995,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(32);
+var isTextNode = __webpack_require__(33);
 
 /*eslint-disable no-bitwise */
 
@@ -1078,11 +1078,11 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(42)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(43)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(43)();
+  module.exports = __webpack_require__(44)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -1117,13 +1117,13 @@ var storeShape = __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.shape({
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = connectAdvanced;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_PropTypes__ = __webpack_require__(18);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -1424,7 +1424,7 @@ selectorFactory) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActionTypes; });
 /* unused harmony export default */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_symbol_observable__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_symbol_observable__ = __webpack_require__(60);
 
 
 
@@ -1679,7 +1679,7 @@ var ActionTypes = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__root_js__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__root_js__ = __webpack_require__(53);
 
 
 /** Built-in value references. */
@@ -1884,15 +1884,87 @@ function verifyPlainObject(value, displayName, methodName) {
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var calculateStats = function calculateStats(level, vocation) {
+    level = Number(level);
+
+    var hitpoints = 145;
+    var manapoints = 50;
+    var capacity = 390;
+
+    if (level <= 8) {
+        hitpoints += level * 5;
+        manapoints += level * 5;
+        capacity += level * 10;
+    } else if (vocation === 'knight') {
+        hitpoints += 40 + (level - 8) * 15;
+        manapoints += 40 + (level - 8) * 5;
+        capacity += 80 + (level - 8) * 25;
+    } else if (vocation === 'paladin') {
+        hitpoints += 40 + (level - 8) * 10;
+        manapoints += 40 + (level - 8) * 15;
+        capacity += 80 + (level - 8) * 20;
+    } else if (vocation === 'sorcerer' || vocation === 'druid') {
+        hitpoints += 40 + (level - 8) * 5;
+        manapoints += 40 + (level - 8) * 30;
+        capacity += 80 + (level - 8) * 10;
+    }
+
+    var results = {
+        hitpoints: hitpoints,
+        manapoints: manapoints,
+        capacity: capacity
+    };
+
+    return results;
+};
+
+var baseExpLoss = function baseExpLoss(level) {
+    level = Number(level);
+    var result = (level + 50) / 100 * 50 * (Math.pow(level, 2) - 5 * level + 8);
+    return result;
+};
+
+var totalExp = function totalExp(level) {
+    var result = 50 / 3 * (Math.pow(level, 3) - 6 * Math.pow(level, 2) + 17 * level - 12);
+    return result;
+};
+
+var expLoss = function expLoss(level, base, promotion, hc, bless) {
+    level = Number(level);
+    var reduc = hc ? 1.16 : 1;
+    var blessReduc = bless ? 0.08 * 7 : 0;
+    var promoReduction = promotion && level >= 20 ? 0.3 : 0;
+
+    var result = level <= 24 ? Math.round(base * 0.1) : Math.round(base * (reduc - (blessReduc + promoReduction)));
+    return result;
+};
+
+var levelLoss = function levelLoss(expLoss, totalExp) {
+    var result = Math.round(expLoss / totalExp * 100) / 100;
+    return result;
+};
+
+exports.default = { calculateStats: calculateStats, levelLoss: levelLoss, expLoss: expLoss, baseExpLoss: baseExpLoss, totalExp: totalExp };
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(30);
+var _reactDom = __webpack_require__(31);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _calculator = __webpack_require__(39);
+var _calculator = __webpack_require__(40);
 
 var _calculator2 = _interopRequireDefault(_calculator);
 
@@ -1901,7 +1973,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_calculator2.default, null), document.getElementById('root'));
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1929,7 +2001,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3294,7 +3366,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3332,15 +3404,15 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(31);
+  module.exports = __webpack_require__(32);
 } else {
-  module.exports = __webpack_require__(34);
+  module.exports = __webpack_require__(35);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3576,7 +3648,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3591,7 +3663,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
  * @typechecks
  */
 
-var isNode = __webpack_require__(33);
+var isNode = __webpack_require__(34);
 
 /**
  * @param {*} object The object to check.
@@ -3604,7 +3676,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3632,7 +3704,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3666,8 +3738,8 @@ var containsNode = __webpack_require__(15);
 var focusNode = __webpack_require__(16);
 var emptyObject = __webpack_require__(5);
 var checkPropTypes = __webpack_require__(7);
-var hyphenateStyleName = __webpack_require__(35);
-var camelizeStyleName = __webpack_require__(37);
+var hyphenateStyleName = __webpack_require__(36);
+var camelizeStyleName = __webpack_require__(38);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -19034,7 +19106,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19049,7 +19121,7 @@ module.exports = reactDom;
 
 
 
-var hyphenate = __webpack_require__(36);
+var hyphenate = __webpack_require__(37);
 
 var msPattern = /^ms-/;
 
@@ -19076,7 +19148,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19112,7 +19184,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19127,7 +19199,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(38);
+var camelize = __webpack_require__(39);
 
 var msPattern = /^-ms-/;
 
@@ -19155,7 +19227,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19190,7 +19262,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19206,11 +19278,15 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(40);
+var _reactRedux = __webpack_require__(41);
 
-var _results = __webpack_require__(69);
+var _results = __webpack_require__(70);
 
 var _results2 = _interopRequireDefault(_results);
+
+var _calculations = __webpack_require__(27);
+
+var _calculations2 = _interopRequireDefault(_calculations);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19229,7 +19305,7 @@ var Calculator = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Calculator.__proto__ || Object.getPrototypeOf(Calculator)).call(this, props));
 
         _this.state = {
-            level: 8,
+            level: '',
             vocation: 'knight',
             promotion: false
         };
@@ -19240,7 +19316,12 @@ var Calculator = function (_Component) {
     _createClass(Calculator, [{
         key: 'handleChange',
         value: function handleChange(e) {
-            this.setState({ level: e.target.value });
+            var level = Number(e.target.value);
+            if (level && level >= 1) {
+                this.setState({ level: level });
+            } else {
+                this.setState({ level: e.target.value });
+            }
         }
     }, {
         key: 'onSelectchange',
@@ -19272,9 +19353,13 @@ var Calculator = function (_Component) {
                         _react2.default.createElement(
                             'label',
                             { className: 'col-md-2 col-form-label' },
-                            'Level'
+                            _react2.default.createElement(
+                                'strong',
+                                null,
+                                'Level'
+                            )
                         ),
-                        _react2.default.createElement('input', { className: 'form-control', id: 'level', name: 'level', value: this.state.level, onChange: this.handleChange.bind(this) }),
+                        _react2.default.createElement('input', { className: 'form-control', type: 'number', id: 'level', name: 'level', value: this.state.level, onChange: this.handleChange.bind(this) }),
                         _react2.default.createElement(
                             'select',
                             { id: 'vocations', onChange: this.onSelectchange.bind(this), className: 'form-control', ref: 'vocation' },
@@ -19333,14 +19418,14 @@ var Calculator = function (_Component) {
 exports.default = Calculator;
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(48);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createProvider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
@@ -19352,7 +19437,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19438,7 +19523,7 @@ function createProvider() {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19988,7 +20073,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20053,7 +20138,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -20131,7 +20216,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20190,7 +20275,7 @@ module.exports = invariant;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20289,17 +20374,17 @@ var Subscription = function () {
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export createConnect */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_connectAdvanced__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(68);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -20405,7 +20490,7 @@ function createConnect() {
 /* harmony default export */ __webpack_exports__["a"] = (createConnect());
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20442,14 +20527,14 @@ function shallowEqual(objA, objB) {
 }
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export whenMapDispatchToPropsIsFunction */
 /* unused harmony export whenMapDispatchToPropsIsMissing */
 /* unused harmony export whenMapDispatchToPropsIsObject */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wrapMapToProps__ = __webpack_require__(25);
 
 
@@ -20473,14 +20558,14 @@ function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject]);
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__combineReducers__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__combineReducers__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(23);
 /* unused harmony reexport createStore */
@@ -20509,13 +20594,13 @@ if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getRawTag_js__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objectToString_js__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getRawTag_js__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objectToString_js__ = __webpack_require__(56);
 
 
 
@@ -20547,11 +20632,11 @@ function baseGetTag(value) {
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__ = __webpack_require__(54);
 
 
 /** Detect free variable `self`. */
@@ -20564,7 +20649,7 @@ var root = __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__["a" /* default */] || fr
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20576,7 +20661,7 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(22)))
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20630,7 +20715,7 @@ function getRawTag(value) {
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20659,11 +20744,11 @@ function objectToString(value) {
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__overArg_js__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__overArg_js__ = __webpack_require__(58);
 
 
 /** Built-in value references. */
@@ -20673,7 +20758,7 @@ var getPrototype = Object(__WEBPACK_IMPORTED_MODULE_0__overArg_js__["a" /* defau
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20695,7 +20780,7 @@ function overArg(func, transform) {
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20731,11 +20816,11 @@ function isObjectLike(value) {
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global, module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ponyfill_js__ = __webpack_require__(61);
+/* WEBPACK VAR INJECTION */(function(global, module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ponyfill_js__ = __webpack_require__(62);
 /* global window */
 
 
@@ -20756,10 +20841,10 @@ if (typeof self !== 'undefined') {
 var result = Object(__WEBPACK_IMPORTED_MODULE_0__ponyfill_js__["a" /* default */])(root);
 /* harmony default export */ __webpack_exports__["a"] = (result);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(22), __webpack_require__(60)(module)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(22), __webpack_require__(61)(module)))
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports) {
 
 module.exports = function(originalModule) {
@@ -20789,7 +20874,7 @@ module.exports = function(originalModule) {
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20814,7 +20899,7 @@ function symbolObservablePonyfill(root) {
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20955,7 +21040,7 @@ function combineReducers(reducers) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -21009,7 +21094,7 @@ function bindActionCreators(actionCreators, dispatch) {
 }
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -21065,7 +21150,7 @@ function applyMiddleware() {
 }
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -21087,7 +21172,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing]);
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -21144,14 +21229,14 @@ function whenMergePropsIsOmitted(mergeProps) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* unused harmony export impureFinalPropsSelectorFactory */
 /* unused harmony export pureFinalPropsSelectorFactory */
 /* harmony export (immutable) */ __webpack_exports__["a"] = finalPropsSelectorFactory;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(69);
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 
@@ -21257,7 +21342,7 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -21282,7 +21367,7 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 }
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21298,7 +21383,9 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _calculations = __webpack_require__(70);
+var _calculations = __webpack_require__(27);
+
+var _calculations2 = _interopRequireDefault(_calculations);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21311,16 +21398,88 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var ResultsTable = function (_Component) {
     _inherits(ResultsTable, _Component);
 
-    function ResultsTable() {
+    function ResultsTable(props) {
         _classCallCheck(this, ResultsTable);
 
-        return _possibleConstructorReturn(this, (ResultsTable.__proto__ || Object.getPrototypeOf(ResultsTable)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (ResultsTable.__proto__ || Object.getPrototypeOf(ResultsTable)).call(this, props));
+
+        _this.state = {
+            baseLoss: 0,
+            expLoss: 0,
+            stats: {
+                hitpoints: '',
+                manapoints: '',
+                capacity: ''
+            },
+            regularLoss: {
+                blessExpLoss: '',
+                blessLvlLoss: '',
+                noBlessExpLoss: '',
+                noBlessLvlLoss: ''
+            },
+            hcLoss: {
+                blessExpLoss: '',
+                blessLvlLoss: '',
+                noBlessExpLoss: '',
+                noBlessLvlLoss: ''
+            },
+            level: 1,
+            vocation: 'knight',
+            promotion: false
+        };
+        return _this;
     }
 
     _createClass(ResultsTable, [{
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+
+            var stats = _calculations2.default.calculateStats(nextProps.level, nextProps.vocation);
+            var baseLoss = _calculations2.default.baseExpLoss(nextProps.level);
+            var totalExp = _calculations2.default.totalExp(nextProps.level);
+
+            // Non Hardcore Server
+            var blessExpLoss = _calculations2.default.expLoss(nextProps.level, baseLoss, nextProps.promotion, false, true);
+            var blessLvlLoss = _calculations2.default.levelLoss(blessExpLoss, totalExp);
+
+            var noBlessExpLoss = _calculations2.default.expLoss(nextProps.level, baseLoss, nextProps.promotion, false, false);
+            var noBlessLvlLoss = _calculations2.default.levelLoss(noBlessExpLoss, totalExp);
+
+            // Hardcore Server
+            var hcBlessExpLoss = _calculations2.default.expLoss(nextProps.level, baseLoss, nextProps.promotion, true, true);
+            var hcBlessLvlLoss = _calculations2.default.levelLoss(hcBlessExpLoss, totalExp);
+
+            var hcNoBlessExpLoss = _calculations2.default.expLoss(nextProps.level, baseLoss, nextProps.promotion, true, false);
+            var hcNoBlessLvlLoss = _calculations2.default.levelLoss(hcNoBlessExpLoss, totalExp);
+
+            var regularLoss = {
+                blessExpLoss: blessExpLoss,
+                blessLvlLoss: blessLvlLoss,
+                noBlessExpLoss: noBlessExpLoss,
+                noBlessLvlLoss: noBlessLvlLoss
+            };
+
+            var hcLoss = {
+                blessExpLoss: hcBlessExpLoss,
+                blessLvlLoss: hcBlessLvlLoss,
+                noBlessExpLoss: hcNoBlessExpLoss,
+                noBlessLvlLoss: hcNoBlessLvlLoss
+            };
+
+            this.setState({
+                baseLoss: baseLoss,
+                totalExp: totalExp,
+                stats: stats,
+                regularLoss: regularLoss,
+                hcLoss: hcLoss,
+                level: nextProps.level,
+                promotion: nextProps.promotion,
+                vocation: nextProps.vocation
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
-            var results = this.props.level >= 8 ? (0, _calculations.calculateLoss)(this.props.level, this.props.promotion, this.props.vocation) : {};
             return _react2.default.createElement(
                 'div',
                 { id: 'resultsTable' },
@@ -21335,7 +21494,7 @@ var ResultsTable = function (_Component) {
                             { className: 'col-md-4 col-form-label' },
                             'Hitpoints'
                         ),
-                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: results.hitpoints || '', readOnly: true })
+                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.stats.hitpoints, readOnly: true })
                     )
                 ),
                 _react2.default.createElement(
@@ -21349,7 +21508,7 @@ var ResultsTable = function (_Component) {
                             { className: 'col-md-4 col-form-label' },
                             'Manapoints'
                         ),
-                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: results.manapoints || '', readOnly: true })
+                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.stats.manapoints, readOnly: true })
                     )
                 ),
                 _react2.default.createElement(
@@ -21363,7 +21522,7 @@ var ResultsTable = function (_Component) {
                             { className: 'col-md-4 col-form-label' },
                             'Capacity'
                         ),
-                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: results.capacity || '', readOnly: true })
+                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.stats.capacity, readOnly: true })
                     )
                 ),
                 _react2.default.createElement(
@@ -21377,7 +21536,7 @@ var ResultsTable = function (_Component) {
                             { className: 'col-md-4 col-form-label' },
                             'All Blessings Experience Loss'
                         ),
-                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: results.blessExpLoss || '', readOnly: true })
+                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.regularLoss.blessExpLoss, readOnly: true })
                     )
                 ),
                 _react2.default.createElement(
@@ -21391,7 +21550,7 @@ var ResultsTable = function (_Component) {
                             { className: 'col-md-4 col-form-label' },
                             'All Blessings Level Loss'
                         ),
-                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: results.blessLevelLoss || '', readOnly: true })
+                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.regularLoss.blessLvlLoss, readOnly: true })
                     )
                 ),
                 _react2.default.createElement(
@@ -21405,7 +21564,7 @@ var ResultsTable = function (_Component) {
                             { className: 'col-md-4 col-form-label' },
                             'No Blessings Experience Loss'
                         ),
-                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: results.noBlessExpLoss || '', readOnly: true })
+                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.regularLoss.noBlessExpLoss, readOnly: true })
                     )
                 ),
                 _react2.default.createElement(
@@ -21419,7 +21578,63 @@ var ResultsTable = function (_Component) {
                             { className: 'col-md-4 col-form-label' },
                             'No Blessings Level Loss'
                         ),
-                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: results.noBlessLevelLoss || '', readOnly: true })
+                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.regularLoss.noBlessLvlLoss, readOnly: true })
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'form-row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'form-group row col-md-6' },
+                        _react2.default.createElement(
+                            'label',
+                            { className: 'col-md-4 col-form-label' },
+                            'Hardcore All Blessings Experience Loss'
+                        ),
+                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.hcLoss.blessExpLoss, readOnly: true })
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'form-row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'form-group row col-md-6' },
+                        _react2.default.createElement(
+                            'label',
+                            { className: 'col-md-4 col-form-label' },
+                            'Hardcore All Blessings Level Loss'
+                        ),
+                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.hcLoss.blessLvlLoss, readOnly: true })
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'form-row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'form-group row col-md-6' },
+                        _react2.default.createElement(
+                            'label',
+                            { className: 'col-md-4 col-form-label' },
+                            'Hardcore No Blessings Experience Loss'
+                        ),
+                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.hcLoss.noBlessExpLoss, readOnly: true })
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'form-row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'form-group row col-md-6' },
+                        _react2.default.createElement(
+                            'label',
+                            { className: 'col-md-4 col-form-label' },
+                            'Hardcore No Blessings Level Loss'
+                        ),
+                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.hcLoss.noBlessLvlLoss, readOnly: true })
                     )
                 )
             );
@@ -21430,80 +21645,6 @@ var ResultsTable = function (_Component) {
 }(_react.Component);
 
 exports.default = ResultsTable;
-
-/***/ }),
-/* 70 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.calculateLoss = calculateLoss;
-function calculateLoss(level, promotion, vocation) {
-
-    var promoReduction = promotion && level >= 20 ? 0.7 : 1;
-
-    var baseExpLoss = (level + 50) / 100 * 50 * (Math.pow(level, 2) - 5 * level + 8);
-    var totalExp = 50 / 3 * (Math.pow(level, 3) - 6 * Math.pow(level, 2) + 17 * level - 12);
-
-    var blessExpLoss = level <= 24 ? baseExpLoss * 0.1 : baseExpLoss * (0.2 * promoReduction);
-    var blessLevelLoss = blessExpLoss / totalExp;
-
-    var noBlessExpLoss = level <= 24 ? baseExpLoss * 0.1 : baseExpLoss * promoReduction;
-    var noBlessLevelLoss = noBlessExpLoss / totalExp;
-
-    var hitpoints = calculateStats(level, vocation).hitpoints;
-    var manapoints = calculateStats(level, vocation).manapoints;
-    var capacity = calculateStats(level, vocation).capacity;
-
-    var results = {
-        blessExpLoss: blessExpLoss,
-        blessLevelLoss: blessLevelLoss,
-        noBlessExpLoss: noBlessExpLoss,
-        noBlessLevelLoss: noBlessLevelLoss,
-        hitpoints: hitpoints,
-        manapoints: manapoints,
-        capacity: capacity
-    };
-
-    return results;
-};
-
-function calculateStats(level, vocation) {
-
-    var hitpoints = 145;
-    var manapoints = 50;
-    var capacity = 390;
-
-    if (level <= 8) {
-        hitpoints += level * 5;
-        manapoints += level * 5;
-        capacity += level * 10;
-    } else if (vocation === 'knight') {
-        hitpoints += (level - 8) * 15;
-        manapoints += (level - 8) * 5;
-        capacity += (level - 8) * 25;
-    } else if (vocation === 'paladin') {
-        hitpoints += (level - 8) * 10;
-        manapoints += (level - 8) * 15;
-        capacity += (level - 8) * 20;
-    } else if (vocation === 'sorcerer' || vocation === 'druid') {
-        hitpoints += (level - 8) * 5;
-        manapoints += (level - 8) * 30;
-        capacity += (level - 8) * 10;
-    }
-
-    var results = {
-        hitpoints: hitpoints,
-        manapoints: manapoints,
-        capacity: capacity
-    };
-
-    return results;
-}
 
 /***/ })
 /******/ ]);
