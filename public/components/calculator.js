@@ -41,17 +41,20 @@ export default class Calculator extends Component{
                 <div className="form-row">
                     <div className="form-group row col-md-12">
                         <label className="col-md-2 col-form-label">Level</label>
-                        <input className="form-control col-md-2" id="level" name="level" value={this.state.level} onChange={this.handleChange.bind(this)}/>
-                        <div className="form-check col-md-2">
-                            <span className="col-md-3">Promotion</span>
-                            <input className="form-input col-md-3" type="checkbox" onChange={this.handlePromotionChange.bind(this)} checked={this.state.promotion}/>
-                        </div>
-                        <select onChange={this.onSelectchange.bind(this)} className="form-control col-md-3" ref="vocation">
+                        <input className="form-control" id="level" name="level" value={this.state.level} onChange={this.handleChange.bind(this)}/>
+                        <select id="vocations" onChange={this.onSelectchange.bind(this)} className="form-control" ref="vocation">
                             <option value="knight">Knight</option>
                             <option value="paladin">Paladin</option>
                             <option value="sorcerer">Sorcerer</option>
                             <option value="druid">Druid</option>
                         </select>
+                        <span id="promotion">
+                            Promotion
+                            <br/>(level 20+)
+                        </span>
+                        <div className="form-check">
+                            <input className="form-input" id="chkPromotion" type="checkbox" onChange={this.handlePromotionChange.bind(this)} checked={this.state.promotion}/>
+                        </div>
                     </div>
                 </div>
             </div>

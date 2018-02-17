@@ -19274,20 +19274,10 @@ var Calculator = function (_Component) {
                             { className: 'col-md-2 col-form-label' },
                             'Level'
                         ),
-                        _react2.default.createElement('input', { className: 'form-control col-md-2', id: 'level', name: 'level', value: this.state.level, onChange: this.handleChange.bind(this) }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'form-check col-md-2' },
-                            _react2.default.createElement(
-                                'span',
-                                { className: 'col-md-3' },
-                                'Promotion'
-                            ),
-                            _react2.default.createElement('input', { className: 'form-input col-md-3', type: 'checkbox', onChange: this.handlePromotionChange.bind(this), checked: this.state.promotion })
-                        ),
+                        _react2.default.createElement('input', { className: 'form-control', id: 'level', name: 'level', value: this.state.level, onChange: this.handleChange.bind(this) }),
                         _react2.default.createElement(
                             'select',
-                            { onChange: this.onSelectchange.bind(this), className: 'form-control col-md-3', ref: 'vocation' },
+                            { id: 'vocations', onChange: this.onSelectchange.bind(this), className: 'form-control', ref: 'vocation' },
                             _react2.default.createElement(
                                 'option',
                                 { value: 'knight' },
@@ -19308,6 +19298,18 @@ var Calculator = function (_Component) {
                                 { value: 'druid' },
                                 'Druid'
                             )
+                        ),
+                        _react2.default.createElement(
+                            'span',
+                            { id: 'promotion' },
+                            'Promotion',
+                            _react2.default.createElement('br', null),
+                            '(level 20+)'
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'form-check' },
+                            _react2.default.createElement('input', { className: 'form-input', id: 'chkPromotion', type: 'checkbox', onChange: this.handlePromotionChange.bind(this), checked: this.state.promotion })
                         )
                     )
                 )
@@ -21321,7 +21323,7 @@ var ResultsTable = function (_Component) {
             var results = this.props.level >= 8 ? (0, _calculations.calculateLoss)(this.props.level, this.props.promotion, this.props.vocation) : {};
             return _react2.default.createElement(
                 'div',
-                null,
+                { id: 'resultsTable' },
                 _react2.default.createElement(
                     'div',
                     { className: 'form-row' },
@@ -21442,26 +21444,45 @@ Object.defineProperty(exports, "__esModule", {
 exports.calculateLoss = calculateLoss;
 function calculateLoss(level, promotion, vocation) {
 
-    var promoReduction = 1;
-
-    if (promotion) {
-        promoReduction = 0.7;
-    }
+    var promoReduction = promotion && level >= 20 ? 0.7 : 1;
 
     var baseExpLoss = (level + 50) / 100 * 50 * (Math.pow(level, 2) - 5 * level + 8);
     var totalExp = 50 / 3 * (Math.pow(level, 3) - 6 * Math.pow(level, 2) + 17 * level - 12);
 
-    var blessExpLoss = level < 25 ? baseExpLoss * 0.1 : baseExpLoss * (Math.pow(0.92, 5) * promoReduction);
+    var blessExpLoss = level <= 24 ? baseExpLoss * 0.1 : baseExpLoss * (0.2 * promoReduction);
     var blessLevelLoss = blessExpLoss / totalExp;
 
-    var noBlessExpLoss = level < 25 ? baseExpLoss * 0.1 : baseExpLoss * promoReduction;
+    var noBlessExpLoss = level <= 24 ? baseExpLoss * 0.1 : baseExpLoss * promoReduction;
     var noBlessLevelLoss = noBlessExpLoss / totalExp;
 
-    var hitpoints = 185;
-    var manapoints = 90;
-    var capacity = 470;
+    var hitpoints = calculateStats(level, vocation).hitpoints;
+    var manapoints = calculateStats(level, vocation).manapoints;
+    var capacity = calculateStats(level, vocation).capacity;
 
-    if (vocation === 'knight') {
+    var results = {
+        blessExpLoss: blessExpLoss,
+        blessLevelLoss: blessLevelLoss,
+        noBlessExpLoss: noBlessExpLoss,
+        noBlessLevelLoss: noBlessLevelLoss,
+        hitpoints: hitpoints,
+        manapoints: manapoints,
+        capacity: capacity
+    };
+
+    return results;
+};
+
+function calculateStats(level, vocation) {
+
+    var hitpoints = 145;
+    var manapoints = 50;
+    var capacity = 390;
+
+    if (level <= 8) {
+        hitpoints += level * 5;
+        manapoints += level * 5;
+        capacity += level * 10;
+    } else if (vocation === 'knight') {
         hitpoints += (level - 8) * 15;
         manapoints += (level - 8) * 5;
         capacity += (level - 8) * 25;
@@ -21476,17 +21497,13 @@ function calculateLoss(level, promotion, vocation) {
     }
 
     var results = {
-        blessExpLoss: blessExpLoss,
-        blessLevelLoss: blessLevelLoss,
-        noBlessExpLoss: noBlessExpLoss,
-        noBlessLevelLoss: noBlessLevelLoss,
         hitpoints: hitpoints,
         manapoints: manapoints,
         capacity: capacity
     };
 
     return results;
-};
+}
 
 /***/ })
 /******/ ]);

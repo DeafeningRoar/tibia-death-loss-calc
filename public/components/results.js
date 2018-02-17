@@ -7,7 +7,7 @@ export default class ResultsTable extends Component{
     render(){
         var results = this.props.level >= 8 ? calculateLoss(this.props.level, this.props.promotion, this.props.vocation) : {};
         return(
-            <div>
+            <div id="resultsTable">
                 <div className="form-row">
                     <div className="form-group row col-md-6">
                         <label className="col-md-4 col-form-label">Hitpoints</label>

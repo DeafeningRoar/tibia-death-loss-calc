@@ -2,3 +2,37 @@
     margin-top: 5%;
     margin-right: 10%;
 }
+
+#resultsTable{
+    width: 100%;
+}
+
+#vocations{
+    height: 8.9%;
+    margin-left: 10px;
+    width: 10%;
+}
+
+#level{
+    height: 8.9%;
+    width: 10%;
+}
+
+#promotion{
+    width: 8%;
+    margin-left: 10px;
+}
+
+#chkPromotion{
+    width: 15px;
+    height: 15px;
+    margin-right: 30%;
+    padding-bottom: 30%;
+    float: right;
+}
+
+.form-check{
+    padding-top: 5px;
+    padding-left: 0;
+}
+
