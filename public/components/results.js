@@ -66,8 +66,8 @@ export default class ResultsTable extends Component{
         }
         
         var stats = Calculations.calculateStats(nextProps.level, nextProps.vocation);
-        var baseLoss = Calculations.baseExpLoss(nextProps.level);
         var totalExp = Calculations.totalExp(nextProps.level);
+        var baseLoss = Calculations.baseExpLoss(nextProps.level, totalExp);
 
         // Non Hardcore Server
         var blessExpLoss = Calculations.expLoss(nextProps.level, baseLoss, nextProps.promotion, false, true);

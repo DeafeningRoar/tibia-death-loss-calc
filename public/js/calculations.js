@@ -33,9 +33,9 @@ const calculateStats = function(level, vocation){
 }
 
 
-var baseExpLoss = function(level){
+var baseExpLoss = function(level, totalExp){
     level = Number(level);
-    var result = (( (level + 50) / 100 ) * 50 * (Math.pow(level, 2) - 5 * level + 8));
+    var result = level < 25 ? 0.1 * totalExp : (( (level + 50) / 100 ) * 50 * (Math.pow(level, 2) - 5 * level + 8));
     return result;
 }
 
@@ -51,7 +51,7 @@ const expLoss = function(level, base, promotion, hc, bless){
     var blessReduc = bless ? (0.08 * 7) : 0;
     var promoReduction = promotion && level >= 20 ? 0.3 : 0;
 
-    var result = level <= 24 ? Math.round(base * 0.1) : Math.round(base * (reduc - (blessReduc + promoReduction)));
+    var result = Math.round(base * (reduc - (blessReduc + promoReduction)));
     return  result;
 }
 
