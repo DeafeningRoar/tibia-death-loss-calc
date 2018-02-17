@@ -1928,6 +1928,7 @@ var baseExpLoss = function baseExpLoss(level) {
 };
 
 var totalExp = function totalExp(level) {
+    level = Number(level);
     var result = 50 / 3 * (Math.pow(level, 3) - 6 * Math.pow(level, 2) + 17 * level - 12);
     return result;
 };
@@ -1942,12 +1943,7 @@ var expLoss = function expLoss(level, base, promotion, hc, bless) {
     return result;
 };
 
-var levelLoss = function levelLoss(expLoss, totalExp) {
-    var result = Math.round(expLoss / totalExp * 100) / 100;
-    return result;
-};
-
-exports.default = { calculateStats: calculateStats, levelLoss: levelLoss, expLoss: expLoss, baseExpLoss: baseExpLoss, totalExp: totalExp };
+exports.default = { calculateStats: calculateStats, expLoss: expLoss, baseExpLoss: baseExpLoss, totalExp: totalExp };
 
 /***/ }),
 /* 28 */
@@ -21404,8 +21400,7 @@ var ResultsTable = function (_Component) {
         var _this = _possibleConstructorReturn(this, (ResultsTable.__proto__ || Object.getPrototypeOf(ResultsTable)).call(this, props));
 
         _this.state = {
-            baseLoss: 0,
-            expLoss: 0,
+            totalExp: '',
             stats: {
                 hitpoints: '',
                 manapoints: '',
@@ -21413,19 +21408,15 @@ var ResultsTable = function (_Component) {
             },
             regularLoss: {
                 blessExpLoss: '',
-                blessLvlLoss: '',
-                noBlessExpLoss: '',
-                noBlessLvlLoss: ''
+                noBlessExpLoss: ''
             },
             hcLoss: {
                 blessExpLoss: '',
-                blessLvlLoss: '',
-                noBlessExpLoss: '',
-                noBlessLvlLoss: ''
+                noBlessExpLoss: ''
             },
-            level: 1,
+            level: '',
             vocation: 'knight',
-            promotion: false
+            promotion: ''
         };
         return _this;
     }
@@ -21434,41 +21425,66 @@ var ResultsTable = function (_Component) {
         key: 'componentWillReceiveProps',
         value: function componentWillReceiveProps(nextProps) {
 
+            if (nextProps.level === 1) {
+                this.setState({
+                    totalExp: 0,
+                    stats: _calculations2.default.calculateStats(nextProps.level, nextProps.vocation),
+                    regularLoss: {
+                        blessExpLoss: 0,
+                        noBlessExpLoss: 0
+                    },
+                    hcLoss: {
+                        blessExpLoss: 0,
+                        noBlessExpLoss: 0
+                    },
+                    level: 1
+                });
+                return null;
+            } else if (nextProps.level <= 0 || !Number(nextProps.level)) {
+                this.setState({
+                    totalExp: '',
+                    stats: {
+                        hitpoints: '',
+                        manapoints: '',
+                        capacity: ''
+                    },
+                    regularLoss: {
+                        blessExpLoss: '',
+                        noBlessExpLoss: ''
+                    },
+                    hcLoss: {
+                        blessExpLoss: '',
+                        noBlessExpLoss: ''
+                    },
+                    level: ''
+                });
+                return null;
+            }
+
             var stats = _calculations2.default.calculateStats(nextProps.level, nextProps.vocation);
             var baseLoss = _calculations2.default.baseExpLoss(nextProps.level);
             var totalExp = _calculations2.default.totalExp(nextProps.level);
 
             // Non Hardcore Server
             var blessExpLoss = _calculations2.default.expLoss(nextProps.level, baseLoss, nextProps.promotion, false, true);
-            var blessLvlLoss = _calculations2.default.levelLoss(blessExpLoss, totalExp);
-
             var noBlessExpLoss = _calculations2.default.expLoss(nextProps.level, baseLoss, nextProps.promotion, false, false);
-            var noBlessLvlLoss = _calculations2.default.levelLoss(noBlessExpLoss, totalExp);
 
             // Hardcore Server
             var hcBlessExpLoss = _calculations2.default.expLoss(nextProps.level, baseLoss, nextProps.promotion, true, true);
-            var hcBlessLvlLoss = _calculations2.default.levelLoss(hcBlessExpLoss, totalExp);
-
             var hcNoBlessExpLoss = _calculations2.default.expLoss(nextProps.level, baseLoss, nextProps.promotion, true, false);
-            var hcNoBlessLvlLoss = _calculations2.default.levelLoss(hcNoBlessExpLoss, totalExp);
 
             var regularLoss = {
                 blessExpLoss: blessExpLoss,
-                blessLvlLoss: blessLvlLoss,
-                noBlessExpLoss: noBlessExpLoss,
-                noBlessLvlLoss: noBlessLvlLoss
+                noBlessExpLoss: noBlessExpLoss
             };
 
             var hcLoss = {
                 blessExpLoss: hcBlessExpLoss,
-                blessLvlLoss: hcBlessLvlLoss,
-                noBlessExpLoss: hcNoBlessExpLoss,
-                noBlessLvlLoss: hcNoBlessLvlLoss
+                noBlessExpLoss: hcNoBlessExpLoss
             };
 
             this.setState({
-                baseLoss: baseLoss,
-                totalExp: totalExp,
+                totalExp: Math.round(totalExp),
                 stats: stats,
                 regularLoss: regularLoss,
                 hcLoss: hcLoss,
@@ -21534,9 +21550,9 @@ var ResultsTable = function (_Component) {
                         _react2.default.createElement(
                             'label',
                             { className: 'col-md-4 col-form-label' },
-                            'All Blessings Experience Loss'
+                            'Total Experience'
                         ),
-                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.regularLoss.blessExpLoss, readOnly: true })
+                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.totalExp, readOnly: true })
                     )
                 ),
                 _react2.default.createElement(
@@ -21548,9 +21564,9 @@ var ResultsTable = function (_Component) {
                         _react2.default.createElement(
                             'label',
                             { className: 'col-md-4 col-form-label' },
-                            'All Blessings Level Loss'
+                            'All Blessings Experience Loss'
                         ),
-                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.regularLoss.blessLvlLoss, readOnly: true })
+                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.regularLoss.blessExpLoss, readOnly: true })
                     )
                 ),
                 _react2.default.createElement(
@@ -21576,20 +21592,6 @@ var ResultsTable = function (_Component) {
                         _react2.default.createElement(
                             'label',
                             { className: 'col-md-4 col-form-label' },
-                            'No Blessings Level Loss'
-                        ),
-                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.regularLoss.noBlessLvlLoss, readOnly: true })
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'form-row' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'form-group row col-md-6' },
-                        _react2.default.createElement(
-                            'label',
-                            { className: 'col-md-4 col-form-label' },
                             'Hardcore All Blessings Experience Loss'
                         ),
                         _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.hcLoss.blessExpLoss, readOnly: true })
@@ -21604,37 +21606,9 @@ var ResultsTable = function (_Component) {
                         _react2.default.createElement(
                             'label',
                             { className: 'col-md-4 col-form-label' },
-                            'Hardcore All Blessings Level Loss'
-                        ),
-                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.hcLoss.blessLvlLoss, readOnly: true })
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'form-row' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'form-group row col-md-6' },
-                        _react2.default.createElement(
-                            'label',
-                            { className: 'col-md-4 col-form-label' },
                             'Hardcore No Blessings Experience Loss'
                         ),
                         _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.hcLoss.noBlessExpLoss, readOnly: true })
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'form-row' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'form-group row col-md-6' },
-                        _react2.default.createElement(
-                            'label',
-                            { className: 'col-md-4 col-form-label' },
-                            'Hardcore No Blessings Level Loss'
-                        ),
-                        _react2.default.createElement('input', { className: 'form-control col-md-8', type: 'text', value: this.state.hcLoss.noBlessLvlLoss, readOnly: true })
                     )
                 )
             );

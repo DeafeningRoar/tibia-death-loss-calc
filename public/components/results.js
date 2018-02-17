@@ -7,8 +7,7 @@ export default class ResultsTable extends Component{
         super(props);
 
         this.state = {
-            baseLoss: 0,
-            expLoss: 0,
+            totalExp: '',
             stats: {
                 hitpoints: '',
                 manapoints: '',
@@ -16,59 +15,80 @@ export default class ResultsTable extends Component{
             },
             regularLoss:{
                 blessExpLoss: '',
-                blessLvlLoss: '',
-                noBlessExpLoss: '',
-                noBlessLvlLoss:''
+                noBlessExpLoss: ''
             },
             hcLoss:{
                 blessExpLoss: '',
-                blessLvlLoss: '',
-                noBlessExpLoss: '',
-                noBlessLvlLoss:''
+                noBlessExpLoss: ''
             },
-            level: 1,
+            level: '',
             vocation: 'knight',
-            promotion: false
+            promotion: ''
         }
     }
 
     componentWillReceiveProps(nextProps){
 
+        if(nextProps.level === 1){
+            this.setState({
+                totalExp: 0,
+                stats: Calculations.calculateStats(nextProps.level, nextProps.vocation),
+                regularLoss:{
+                    blessExpLoss: 0,
+                    noBlessExpLoss: 0
+                },
+                hcLoss:{
+                    blessExpLoss: 0,
+                    noBlessExpLoss: 0
+                },
+                level: 1
+            });
+            return null;
+        } else if(nextProps.level <= 0 || !Number(nextProps.level)){
+            this.setState({
+                totalExp: '',
+                stats: {
+                    hitpoints: '',
+                    manapoints: '',
+                    capacity: ''
+                },
+                regularLoss:{
+                    blessExpLoss: '',
+                    noBlessExpLoss: ''
+                },
+                hcLoss:{
+                    blessExpLoss: '',
+                    noBlessExpLoss: ''
+                },
+                level: ''
+            });
+            return null; 
+        }
+        
         var stats = Calculations.calculateStats(nextProps.level, nextProps.vocation);
         var baseLoss = Calculations.baseExpLoss(nextProps.level);
         var totalExp = Calculations.totalExp(nextProps.level);
 
         // Non Hardcore Server
         var blessExpLoss = Calculations.expLoss(nextProps.level, baseLoss, nextProps.promotion, false, true);
-        var blessLvlLoss = Calculations.levelLoss(blessExpLoss, totalExp);
-
         var noBlessExpLoss = Calculations.expLoss(nextProps.level,baseLoss, nextProps.promotion, false, false);
-        var noBlessLvlLoss = Calculations.levelLoss(noBlessExpLoss, totalExp);
 
         // Hardcore Server
         var hcBlessExpLoss = Calculations.expLoss(nextProps.level, baseLoss, nextProps.promotion, true, true);
-        var hcBlessLvlLoss = Calculations.levelLoss(hcBlessExpLoss, totalExp);
-
         var hcNoBlessExpLoss = Calculations.expLoss(nextProps.level, baseLoss, nextProps.promotion, true, false);
-        var hcNoBlessLvlLoss = Calculations.levelLoss(hcNoBlessExpLoss, totalExp);
 
         var regularLoss = {
             blessExpLoss,
-            blessLvlLoss,
             noBlessExpLoss,
-            noBlessLvlLoss
         };
 
         var hcLoss = {
             blessExpLoss: hcBlessExpLoss,
-            blessLvlLoss: hcBlessLvlLoss,
             noBlessExpLoss: hcNoBlessExpLoss,
-            noBlessLvlLoss: hcNoBlessLvlLoss
         };
 
         this.setState({
-            baseLoss,
-            totalExp,
+            totalExp: Math.round(totalExp),
             stats,
             regularLoss,
             hcLoss,
@@ -101,14 +121,14 @@ export default class ResultsTable extends Component{
                 </div>
                 <div className="form-row">
                     <div className="form-group row col-md-6">
-                        <label className="col-md-4 col-form-label">All Blessings Experience Loss</label>
-                        <input className="form-control col-md-8" type="text" value={this.state.regularLoss.blessExpLoss} readOnly/>
+                        <label className="col-md-4 col-form-label">Total Experience</label>
+                        <input className="form-control col-md-8" type="text" value={this.state.totalExp} readOnly/>
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="form-group row col-md-6">
-                        <label className="col-md-4 col-form-label">All Blessings Level Loss</label>
-                        <input className="form-control col-md-8" type="text" value={this.state.regularLoss.blessLvlLoss} readOnly/>
+                        <label className="col-md-4 col-form-label">All Blessings Experience Loss</label>
+                        <input className="form-control col-md-8" type="text" value={this.state.regularLoss.blessExpLoss} readOnly/>
                     </div>
                 </div>
                 <div className="form-row">
@@ -119,34 +139,14 @@ export default class ResultsTable extends Component{
                 </div>
                 <div className="form-row">
                     <div className="form-group row col-md-6">
-                        <label className="col-md-4 col-form-label">No Blessings Level Loss</label>
-                        <input className="form-control col-md-8" type="text" value={this.state.regularLoss.noBlessLvlLoss} readOnly/>
-                    </div>
-                </div>
-
-                <div className="form-row">
-                    <div className="form-group row col-md-6">
                         <label className="col-md-4 col-form-label">Hardcore All Blessings Experience Loss</label>
                         <input className="form-control col-md-8" type="text" value={this.state.hcLoss.blessExpLoss} readOnly/>
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="form-group row col-md-6">
-                        <label className="col-md-4 col-form-label">Hardcore All Blessings Level Loss</label>
-                        <input className="form-control col-md-8" type="text" value={this.state.hcLoss.blessLvlLoss} readOnly/>
-                    </div>
-                </div>
-
-                <div className="form-row">
-                    <div className="form-group row col-md-6">
                         <label className="col-md-4 col-form-label">Hardcore No Blessings Experience Loss</label>
                         <input className="form-control col-md-8" type="text" value={this.state.hcLoss.noBlessExpLoss} readOnly/>
-                    </div>
-                </div>
-                <div className="form-row">
-                    <div className="form-group row col-md-6">
-                        <label className="col-md-4 col-form-label">Hardcore No Blessings Level Loss</label>
-                        <input className="form-control col-md-8" type="text" value={this.state.hcLoss.noBlessLvlLoss} readOnly/>
                     </div>
                 </div>
             </div>

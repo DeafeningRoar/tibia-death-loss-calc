@@ -40,6 +40,7 @@ var baseExpLoss = function(level){
 }
 
 const totalExp = function(level){
+    level = Number(level);
     var result = ((50/3) * (Math.pow(level, 3) - 6*Math.pow(level, 2) + 17 * level - 12));
     return result;
 }
@@ -54,9 +55,4 @@ const expLoss = function(level, base, promotion, hc, bless){
     return  result;
 }
 
-const levelLoss = function(expLoss, totalExp){
-    var result = Math.round((expLoss / totalExp) * 100) / 100;
-    return result;
-}
-
-export default { calculateStats, levelLoss, expLoss, baseExpLoss, totalExp };
+export default { calculateStats, expLoss, baseExpLoss, totalExp };
