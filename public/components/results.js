@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Calculations from '../js/calculations';
-
+import Numeral from 'numeral';
 
 export default class ResultsTable extends Component{
     constructor(props){
@@ -78,21 +78,25 @@ export default class ResultsTable extends Component{
         var hcNoBlessExpLoss = Calculations.expLoss(nextProps.level, baseLoss, nextProps.promotion, true, false);
 
         var regularLoss = {
-            blessExpLoss,
-            noBlessExpLoss,
+            blessExpLoss: Numeral(blessExpLoss).format('0,0'),
+            noBlessExpLoss: Numeral(noBlessExpLoss).format('0,0')
         };
 
         var hcLoss = {
-            blessExpLoss: hcBlessExpLoss,
-            noBlessExpLoss: hcNoBlessExpLoss,
+            blessExpLoss: Numeral(hcBlessExpLoss).format('0,0'),
+            noBlessExpLoss: Numeral(hcNoBlessExpLoss).format('0,0')
         };
 
         this.setState({
-            totalExp: Math.round(totalExp),
-            stats,
+            totalExp: Numeral(Math.round(totalExp)).format('0,0'),
+            stats: {
+                hitpoints: Numeral(stats.hitpoints).format('0,0'),
+                manapoints: Numeral(stats.manapoints).format('0,0'),
+                capacity: Numeral(stats.capacity).format('0,0'),
+            },
             regularLoss,
             hcLoss,
-            level: nextProps.level,
+            level:  Numeral(nextProps.level).format('0,0'),
             promotion: nextProps.promotion,
             vocation: nextProps.vocation
         });
