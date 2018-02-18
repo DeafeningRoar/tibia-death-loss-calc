@@ -41,7 +41,8 @@
 }
 
 .form-row{
-    height: 50px;
+    min-height: auto;
+    height: auto;
     margin: 20px auto;
 }
 
@@ -71,4 +72,11 @@
 
 .col.col-md-2>.custom-control.custom-checkbox>.custom-control-label.unselectable::after{
     top: .35rem;
+}
+
+
+
+.form-group{
+    margin: 0 !important;
+    padding: 0 !important;
 }
