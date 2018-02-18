@@ -43,9 +43,9 @@ export default class Calculator extends Component{
     renderForm(){
         return(
             <div>
-                <div className="form-row">
-                    <div className="form-group row col-md-12">
-                        <label className="col-md-2 col-form-label"><strong>Level</strong></label>
+                <div>
+                    <div className="form-group row col-md-12 d-flex justify-content-center">
+                        <label className="col-md-1 col-form-label"><strong>Level</strong></label>
                         <input className="form-control" type="number" id="level" name="level" value={this.state.level} onChange={this.handleChange.bind(this)}/>
                         <select id="vocations" onChange={this.onSelectchange.bind(this)} className="form-control" ref="vocation">
                             <option value="knight">Knight</option>

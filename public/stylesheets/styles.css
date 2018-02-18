@@ -1,10 +1,9 @@
 #calcContainer{
     margin-top: 2%;
-    margin-right: 10%;
 }
 
 #resultsTable{
-    width: 100%;
+    width: 50%;
 }
 
 #vocations{
@@ -14,22 +13,20 @@
 }
 
 #level{
-    min-width: 10%;
-    width: 10%;
+    width: 20%;
     height: 45px;
 }
 
 #promotion{
-    width: 8%;
     margin-left: 10px;
     height: 45px;
     line-height: 22px;
 }
 
 #chkPromotion{
-    width: 15px;
-    height: 15px;
-    margin-top: 10%;
+    margin-left: 10px;
+    height: 20px;
+    width: 20px;
 }
 
 .form-check{
@@ -37,3 +34,10 @@
     padding-left: 0;
 }
 
+.form-row input{
+    height: 50px;
+}
+
+.form-row{
+    height: 82px;
+}
