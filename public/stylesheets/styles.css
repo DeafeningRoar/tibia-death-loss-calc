@@ -10,7 +10,7 @@
 
 #vocations{
     margin-left: 10px;
-    width: 10%;
+    max-width: 120px;
     height: 45px;
 }
 
