@@ -14,6 +14,7 @@
     "babel-preset-stage-1": "^6.24.1",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
+    "lodash": "^4.17.5",
     "numeral": "^2.0.6",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

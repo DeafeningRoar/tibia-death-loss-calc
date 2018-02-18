@@ -66,12 +66,20 @@ const expLoss = function(level, base, promotion, hc, bless){
 }
 
 const expLossCustomBless = function(level, base, promotion, hc, bless){
-    var reduc = hc ? 1.16 : 1;
-    var blessReduc = (0.08 * bless.length);
-    var promoReduction = promotion && level >= 20 ? 0.3 : 0;
+    level = Number(level);
 
-    var result = base * (reduc - (blessReduc + promoReduction));
-    return  result;
+    if(level === 1){
+        return 0;
+    }
+
+    if(level > 1){
+        var reduc = hc ? 1.16 : 1;
+        var blessReduc = (0.08 * bless.length);
+        var promoReduction = promotion && level >= 20 ? 0.3 : 0;
+
+        var result = base * (reduc - (blessReduc + promoReduction));
+        return  Numeral(result).format('0,0');
+    }
 }
 
 const totalResults = function(level, voc, promo){
@@ -114,4 +122,4 @@ const totalResults = function(level, voc, promo){
     }
 }
 
-export default { totalResults, expLossCustomBless, baseExperienceLoss, defaultValues };
+export default { totalResults, expLossCustomBless, baseExperienceLoss, defaultValues, totalExperience };

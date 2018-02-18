@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Results from './results';
-import Calculations from '../js/calculations';
+import _ from 'lodash';
+import CustomBless from './customBless';
 
 
 export default class Calculator extends Component{
@@ -9,6 +10,7 @@ export default class Calculator extends Component{
         super(props);
 
         this.state = {
+            blessings: [],
             level: '',
             vocation: 'knight',
             promotion: false,   
@@ -40,6 +42,30 @@ export default class Calculator extends Component{
         );
     }
 
+    handleOnBlessChange(event){
+        var blessList = this.state.blessings;
+
+        if(event.target.checked){
+            blessList.push({id: event.target.attributes.id, name: event.target.value});
+        }
+
+        if(!event.target.checked){
+            _.remove(blessList, {
+                name: event.target.value
+            });
+        }
+
+        this.setState({
+            blessings: blessList
+        })
+    }
+
+    renderCustomBless(){
+        return(
+            <CustomBless blessings={this.state.blessings} level={this.state.level} vocation={this.state.vocation} promotion={this.state.promotion} handleChange={this.handleOnBlessChange.bind(this)}/>
+        );
+    }
+
     renderForm(){
         return(
             <div>
@@ -53,12 +79,12 @@ export default class Calculator extends Component{
                             <option value="sorcerer">Sorcerer</option>
                             <option value="druid">Druid</option>
                         </select>
-                        <span id="promotion">
-                            Promotion
-                            <br/>(level 20+)
-                        </span>
-                        <div className="form-check">
-                            <input className="form-input" id="chkPromotion" type="checkbox" onChange={this.handlePromotionChange.bind(this)} checked={this.state.promotion}/>
+                        <div className="col col-md-2">
+                            <div className="custom-control custom-checkbox">
+                                <input className="custom-control-input col-form-label" id="chkPromotion" type="checkbox" onChange={this.handlePromotionChange.bind(this)} checked={this.state.promotion}/>
+                                <label className="custom-control-label unselectable" htmlFor="chkPromotion">Promotion</label>
+                                <label className="unselectable" htmlFor="chkPromotion">(Level 20+)</label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -70,7 +96,14 @@ export default class Calculator extends Component{
         return(
             <div id="calcContainer" className="container">
                 {this.renderForm()}
-                {this.renderResults()}
+                <div className="row">
+                    <div className="col col-md-6">
+                        {this.renderResults()}
+                    </div>
+                    <div className="col col-md-6">
+                        {this.renderCustomBless()}
+                    </div>
+                </div>
             </div>
         );
     }
